@@ -3,10 +3,11 @@
 TABLE
 --------------------
 -prototypes
-    -name       :string
-    -concept    :text
-    -catch_copy :text
-    -timestamps
+    -name           :string
+    -concept        :text
+    -catch_copy     :text
+    -likes_count    :integer
+    -user_id        :integer
 
 -users
     -name       :string
@@ -15,31 +16,45 @@ TABLE
     -avatar     :text
     -email      :text
     -password   :text
-    -timestamps
+    -prot_id    :integer
 
 -images
     -prototype_id   :integer
-    -
+    -image          :text
+
 
 -comments
+    -commnent   :text
+    -user_id    :integer
+    -prot_id    :integer
     -
 
 -likes
-    -
+    -user_id    :integer
+    -prot_id    :integer
+
 
 ASSOCOATION
 --------------------
 -prototype
-    -
+    -has_many      :images
+    -has_many      :comments
+    -has_many      :likes
+    -belongs _to   :user
+
 
 -user
-    -
+    -has_many   :prototypes
+    -has_many   :comments
+
 
 -image
-    -
+    -belongs_to     :prototypes
 
 -comment
-    -
+    -belongs_to     :prototypes
+    -belongs_to     :users
 
 -like
-    -
+    -belongs_to     :prototypes
+    -belongs_to     :users
