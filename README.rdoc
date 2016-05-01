@@ -16,22 +16,22 @@ TABLE
     -avatar     :text
     -email      :text
     -password   :text
-    -prot_id    :integer
 
 -images
     -prototype_id   :integer
-    -image          :text
+    -main_image     :text
+    -sub_image      :text
 
 
 -comments
-    -commnent   :text
+    -comment   :text
     -user_id    :integer
-    -prot_id    :integer
-    -
+    -prototype_id    :integer
+
 
 -likes
     -user_id    :integer
-    -prot_id    :integer
+    -prototype_id    :integer
 
 
 ASSOCOATION
@@ -46,15 +46,16 @@ ASSOCOATION
 -user
     -has_many   :prototypes
     -has_many   :comments
+    -has_many   :likes
 
 
 -image
-    -belongs_to     :prototypes
+    -belongs_to     :prototype
 
 -comment
-    -belongs_to     :prototypes
+    -belongs_to     :prototype
     -belongs_to     :users
 
 -like
-    -belongs_to     :prototypes
+    -belongs_to     :prototype
     -belongs_to     :users
