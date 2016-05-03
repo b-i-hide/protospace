@@ -19,7 +19,7 @@ TABLE
 -images
     -prototype_id   :integer
     -image          :text
-    -status(enum)   :integer[main,sub]
+    -status(enum)   :integer
 
 -comments
     -comment        :text
