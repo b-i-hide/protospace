@@ -18,6 +18,7 @@ TABLE
 
 -images
     -prototype_id   :integer
+    -image          :text
     -status(enum)   :integer[main,sub]
 
 -comments
