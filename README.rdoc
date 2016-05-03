@@ -19,19 +19,18 @@ TABLE
 
 -images
     -prototype_id   :integer
-    -main_image     :text
-    -sub_image      :text
+    -status(enum)   :main,sub
 
 
 -comments
-    -comment   :text
-    -user_id    :integer
-    -prototype_id    :integer
+    -comment        :text
+    -user_id        :integer
+    -prototype_id   :integer
 
 
 -likes
-    -user_id    :integer
-    -prototype_id    :integer
+    -user_id            :integer
+    -prototype_id       :integer
 
 
 ASSOCOATION
