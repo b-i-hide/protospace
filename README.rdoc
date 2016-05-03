@@ -1,28 +1,55 @@
-== README
+== PROTOSPACE
+TABLE
+--------------------
+-prototypes
+    -name           :string
+    -concept        :text
+    -catch_copy     :text
+    -likes_count    :integer
+    -user_id        :integer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+-users
+    -name       :string
+    -works      :text
+    -profile    :text
+    -avatar     :text
+    -email      :text
+    -password   :text
 
-Things you may want to cover:
+-images
+    -prototype_id   :integer
+    -image          :text
+    -status(enum)   :integer
 
-* Ruby version
+-comments
+    -comment        :text
+    -user_id        :integer
+    -prototype_id   :integer
 
-* System dependencies
+-likes
+    -user_id            :integer
+    -prototype_id       :integer
 
-* Configuration
+ASSOCIATION
+--------------------
+-prototype
+    -has_many      :images
+    -has_many      :comments
+    -has_many      :likes
+    -belongs _to   :user
 
-* Database creation
+-user
+    -has_many   :prototypes
+    -has_many   :comments
+    -has_many   :likes
 
-* Database initialization
+-image
+    -belongs_to     :prototype
 
-* How to run the test suite
+-comment
+    -belongs_to     :prototype
+    -belongs_to     :user
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+-like
+    -belongs_to     :prototype
+    -belongs_to     :user
