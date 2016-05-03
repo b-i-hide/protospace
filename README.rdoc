@@ -1,5 +1,4 @@
 == PROTOSPACE
-
 TABLE
 --------------------
 -prototypes
@@ -19,21 +18,18 @@ TABLE
 
 -images
     -prototype_id   :integer
-    -status(enum)   :main,sub
-
+    -status(enum)   :integer[main,sub]
 
 -comments
     -comment        :text
     -user_id        :integer
     -prototype_id   :integer
 
-
 -likes
     -user_id            :integer
     -prototype_id       :integer
 
-
-ASSOCOATION
+ASSOCIATION
 --------------------
 -prototype
     -has_many      :images
@@ -41,20 +37,18 @@ ASSOCOATION
     -has_many      :likes
     -belongs _to   :user
 
-
 -user
     -has_many   :prototypes
     -has_many   :comments
     -has_many   :likes
-
 
 -image
     -belongs_to     :prototype
 
 -comment
     -belongs_to     :prototype
-    -belongs_to     :users
+    -belongs_to     :user
 
 -like
     -belongs_to     :prototype
-    -belongs_to     :users
+    -belongs_to     :user
