@@ -4,10 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :name
-    devise_parameter_sanitizer.for(:sign_up) << :works
-    devise_parameter_sanitizer.for(:sign_up) << :profile
-    devise_parameter_sanitizer.for(:sign_up) << :avatar
-  end
+  validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpeg","image/png"]
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
 end
