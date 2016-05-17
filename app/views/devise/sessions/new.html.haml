@@ -1,9 +1,8 @@
 .container
   %form.form-signin
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    %h2
-      .form-signin-heading
-        Please sign in
+    %h2.form-signin-heading
+      Please sign in
     .field.sr-only
       = f.label :email, for: "inputEmail"
         Email address
@@ -16,7 +15,7 @@
         = f.password_field :password, placeholder: "Password", required: ""
     .checkbox
       .field
-        %if devise_mapping.rememberable?
+        - if devise_mapping.rememberable?
         = f.checkbox :remember_me, value: "remember-me"
         = f.label :remember_me
           Remember me

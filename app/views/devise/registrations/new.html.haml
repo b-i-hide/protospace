@@ -15,17 +15,17 @@
               =button_tag.btn.btn-primary
               Add image
               = f.file_field :avatar
-          .field
-            .user-email
-              = f.label :email
-              = f.email_field :email, placeholder: "E-Mail"
-            .user-password
-              = f.label :password
-              %if @minimum_password_length
-              %em
-                = @minimum_password_length
-                  "characters minimum"
-                %br
+          .user-email
+            = f.label :email
+            %br
+            = f.email_field :email, placeholder: "E-Mail"
+          .user-password
+            = f.label :password
+            - if @minimum_password_length
+            %em
+              = @minimum_password_length
+                "characters minimum"
+              %br
               = f.password_field :password, placeholder: "Password", autocomplete: "off"
               = f.label :password_confirmation
               %br
@@ -35,16 +35,19 @@
           .user-user-member.row
             .user-name.col-md-12
               = f.label :group
+              %br
               = f.text_field :group, placeholder: "Member"
           %h4 Profile
           .user-user-profile.row
             .user-name.col-md-12
               = f.label :profile
+              %br
               = f.text_area :profile, name: "textarea", cols: "30", rows: "4", placeholder: "Profile"
           %h4 Works
           .user-name_image.row
             .user-name.col-md-12
               = f.label :work
+              %br
               = f.text_area :works, name: "textarea", cols: "30", rows: "4", placeholder: "Works"
       .row.text-center.user-btn
         = f.button.btn.btn-lg.btn-primary.btn-block
