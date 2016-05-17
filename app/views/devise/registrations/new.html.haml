@@ -12,7 +12,8 @@
                 %br
                 = f.text_field :name, placeholder: "Name", autofocus: true
             .user-image.col-md-2
-              =button_tag 'Add image', class: { btn, btn-primary}
+              =button_tag.btn.btn-primary
+              Add image
               = f.file_field :avatar
           .field
             .user-email
