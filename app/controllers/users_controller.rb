@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(update_params)
+    @user.update(user_params)
     redirect_to action: :show
   end
 
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def update_params
-    params.require(:user).permit(:name, :profile, :works)
+  def user_params
+    params.require(:user).permit(:name, :profile, :works, :email)
   end
 end
