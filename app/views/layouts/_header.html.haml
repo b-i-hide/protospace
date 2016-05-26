@@ -16,7 +16,7 @@
               %li
                 = link_to 'My page', user_path(current_user)
               %li
-                = link_to 'Profile edit', edit_user_registration_path
+                = link_to 'Profile edit', edit_user_path(current_user)
               %li
                 = link_to 'Logout', destroy_user_session_path, method: :delete
           %li
