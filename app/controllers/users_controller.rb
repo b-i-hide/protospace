@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
+    flash[:success] = '編集に成功しました'
     redirect_to action: :show
   end
 
