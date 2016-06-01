@@ -1,5 +1,5 @@
 .container.proto-new
-  = form_for(@prototype) do |f|
+  = form_for @prototype do |f|
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
         .col-md-12
@@ -22,15 +22,15 @@
         .col-md-12
           = f.text_field :catch_copy, placeholder: 'Catch Copy'
         .col-md-12
-          = f.text_area :concept, cols: "30", rows: "4", placeholder: 'Concept'
+          = f.text_area :concept, cols: '30', rows: '4', placeholder: 'Concept'
         .col-md-12
           %h4 Tag List
           .row
             .col-md-3
-              %input{type: "text", placeholder: "Web Design"}/
+              %input{type: 'text', placeholder: 'Web Design'}/
             .col-md-3
-              %input{type: "text", placeholder: "UI"}/
+              %input{type: 'text', placeholder: 'UI'}/
             .col-md-3
-              %input{type: "text", placeholder: "Application"}/
+              %input{type: 'text', placeholder: 'Application'}/
       .row.text-center.proto-btn
         = f.submit 'Publish', class: 'btn btn-lg btn-primary btn-block'
