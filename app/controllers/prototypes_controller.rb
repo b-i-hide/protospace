@@ -15,9 +15,13 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    Prototype.create(prototype_params)
-    flash[:success] = 'Your prototype was successfully posted'
-    redirect_to action: :index
+    if Prototype.create(prototype_params)
+      flash[:success] = 'Your prototype was successfully posted'
+      redirect_to action: :index
+    else
+      flash[:warning] = 'Failed'
+      redirect_to action: :new
+    end
   end
 
   private
