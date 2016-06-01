@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: :create
   def index
 
   end
@@ -15,7 +15,8 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    if current_user.prototypes.create(prototype_params)
+    @prototype = current_user.prototypes.new(prototype_params)
+    if @prototype.save
       flash[:success] = 'Your prototype was successfully posted'
       redirect_to action: :index
     else
