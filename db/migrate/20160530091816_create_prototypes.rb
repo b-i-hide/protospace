@@ -3,10 +3,10 @@ class CreatePrototypes < ActiveRecord::Migration
     create_table :prototypes do |t|
       t.string :name
       t.text :concept
-      t.text :chatch_copy
-      t.integer :likes_count
-      t.integer :user_id
-      t.timestamps null: false
+      t.text :catch_copy
+      t.references :user, index: true, foreign_keys: true
+
+      t.timestamps
     end
   end
 end

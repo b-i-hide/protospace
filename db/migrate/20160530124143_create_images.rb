@@ -4,8 +4,9 @@ class CreateImages < ActiveRecord::Migration
       t.integer :prototype_id
       t.text :image
       t.integer :status
+      t.references :prototype, index: true, foreign_keys: true
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end
