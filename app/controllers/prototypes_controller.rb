@@ -15,7 +15,7 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    if Prototype.create(prototype_params)
+    if current_user.prototypes.create(prototype_params)
       flash[:success] = 'Your prototype was successfully posted'
       redirect_to action: :index
     else
@@ -27,6 +27,6 @@ class PrototypesController < ApplicationController
   private
 
   def prototype_params
-    params.require(:prototype).permit(:name, :concept, :catch_copy, images_attributes: [:id, :prototype_id, :status, :image]).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:name, :concept, :catch_copy, images_attributes: [:status, :image])
   end
 end
