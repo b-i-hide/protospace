@@ -53,3 +53,6 @@ gem 'bootstrap-sass'
 
 # Add Devise
 gem 'devise'
+
+# Add carrierwave
+gem 'carrierwave'
