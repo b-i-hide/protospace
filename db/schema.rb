@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20160530124143) do
 
   create_table "images", force: :cascade do |t|
-    t.integer  "prototype_id", limit: 4
     t.text     "image",        limit: 65535
     t.integer  "status",       limit: 4
+    t.integer  "prototype_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -57,5 +57,6 @@ ActiveRecord::Schema.define(version: 20160530124143) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "images", "prototypes"
   add_foreign_key "prototypes", "users"
 end
