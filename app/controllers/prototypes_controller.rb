@@ -15,8 +15,8 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @prototype = current_user.prototypes.new(prototype_params)
-    if @prototype.save
+    prototype = current_user.prototypes.new(prototype_params)
+    if prototype.save
       flash[:success] = 'Your prototype was successfully posted'
       redirect_to action: :index
     else
