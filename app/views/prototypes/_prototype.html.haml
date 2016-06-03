@@ -1,14 +1,14 @@
 .col-sm-4.col-md-3.proto-content
   .thumbnail
-    = link_to image_tag("#{prototype.images.main.first.image}"), prototype_path(prototype)
+    = link_to image_tag(prototype.images.main.first.image), prototype_path(prototype)
     .caption
       %h3
         = prototype.name
       .proto-meta
         .proto-user
-          = link_to "by #{prototype.user.name}", user_path(prototype.user.id)
+          = link_to "by #{prototype.user.name}", user_path(prototype.user)
         .proto-posted
-          = prototype.created_at.strftime("%b %d")
+          = prototype.posted_date
       %ul.proto-tag-list.list-inline
         %li
           %a{href: "#", class: "btn btn-default"} iPad
