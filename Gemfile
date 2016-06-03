@@ -56,3 +56,6 @@ gem 'devise'
 
 # Add carrierwave
 gem 'carrierwave'
+
+# Add kaminari
+gem 'kaminari'
