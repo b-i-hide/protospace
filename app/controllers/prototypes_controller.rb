@@ -1,8 +1,9 @@
 class PrototypesController < ApplicationController
 
   before_action :authenticate_user!, only: [:create, :new]
-  def index
 
+  def index
+    @prototypes = Prototype.includes(:user, :main_image).page(params[:page])
   end
 
   def new
