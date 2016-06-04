@@ -1,9 +1,9 @@
 class PrototypesController < ApplicationController
 
   before_action :authenticate_user!, only: [:create, :new]
-  
+
   def index
-    @prototypes = Prototype.includes(:user).page(params[:page]).per(4)
+    @prototypes = Prototype.eager_load(:user, :images).page(params[:page])
   end
 
   def new
