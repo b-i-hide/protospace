@@ -12,7 +12,9 @@ class PrototypesController < ApplicationController
   end
 
   def show
-
+    @prototype = Prototype.find(params[:id])
+    @sub_images = @prototype.images.sub
+    @user = @prototype.user
   end
 
   def create
