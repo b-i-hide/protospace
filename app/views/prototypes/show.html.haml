@@ -9,7 +9,7 @@
           %h4#top-aligned-media.media-heading
             = @prototype.name
           .proto-user
-            = link_to "by #{@user.name}"
+            = link_to "by #{@user.name}", user_path(@user)
             %span.degree we-b inc. Designer
 
     .col-md-6.text-right
@@ -19,12 +19,12 @@
         %span.num 20
   .row
     .col-md-9
-      = image_tag("#{@prototype.main_image.image}", class: 'img-responsive')
+      = image_tag(@prototype.main_image.image, class: 'img-responsive')
     .col-md-3
       %ul.proto-sub-list.list-group
         - @sub_images.each do |sub_image|
           %li.list-group-item
-            = image_tag("#{sub_image.image}", class: 'img-responsive')
+            = image_tag(sub_image.image, class: 'img-responsive')
 
   .row.proto-description
     .col-md-3
