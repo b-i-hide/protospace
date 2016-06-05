@@ -1,6 +1,7 @@
 class PrototypesController < ApplicationController
 
   before_action :authenticate_user!, only: [:create, :new]
+  before_action :set_prototype, only: [:show]
 
   def index
     @prototypes = Prototype.includes(:user, :main_image).page(params[:page])
@@ -12,7 +13,6 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @prototype = Prototype.find(params[:id])
     @sub_images = @prototype.images.sub
     @user = @prototype.user
   end
@@ -32,5 +32,9 @@ class PrototypesController < ApplicationController
 
   def prototype_params
     params.require(:prototype).permit(:name, :concept, :catch_copy, images_attributes: [:status, :image])
+  end
+
+  def set_prototype
+    @prototype = Prototype.find(params[:id])
   end
 end
