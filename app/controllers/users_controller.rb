@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i(show update edit)
 
   def show
+    @prototypes = @user.prototypes
   end
 
   def edit
@@ -20,6 +21,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :profile, :works, :email, :password, :group)
+    params.require(:user).permit(:name, :profile, :works, :email, :password, :group, :avatar)
   end
 end
