@@ -14,116 +14,15 @@
         .row
           .col-md-6
             %h4 Profile
-            %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            = @user.profile
           .col-md-6
             %h4 Works
-            %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            = @user.works
+
 .container.proto-list
   .row
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        = link_to image_tag('sample.png'), '#'
-        .caption
-          %h3 Salvation Army on iPad App Wireframe
-          .proto-meta
-            .proto-date
-              Apr 26
-          %ul.proto-tag-list.list-inline
-            %li
-              = link_to 'iPad', '#', class: 'btn btn-default'
-            %li
-              = link_to 'wireframe', '#', class: 'btn btn-default'
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        = link_to image_tag('sample.png'), '#'
-        .caption
-          %h3 Salvation Army on iPad App Wireframe
-          .proto-meta
-            .proto-date
-              Apr 26
-          %ul.proto-tag-list.list-inline
-            %li
-              = link_to 'iPad', '#', class: 'btn btn-default'
-            %li
-              = link_to 'wireframe', '#', class: 'btn btn-default'
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        = link_to image_tag('sample.png'), '#'
-        .caption
-          %h3 Salvation Army on iPad App Wireframe
-          .proto-meta
-            .proto-date
-              Apr 26
-          %ul.proto-tag-list.list-inline
-            %li
-              = link_to 'iPad', '#', class: 'btn btn-default'
-            %li
-              = link_to 'wireframe', '#', class: 'btn btn-default'
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        = link_to image_tag('sample.png'), '#'
-        .caption
-          %h3 Salvation Army on iPad App Wireframe
-          .proto-meta
-            .proto-date
-              Apr 26
-          %ul.proto-tag-list.list-inline
-            %li
-              = link_to 'iPad', '#', class: 'btn btn-default'
-            %li
-              = link_to 'wireframe', '#', class: 'btn btn-default'
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        = link_to image_tag('sample.png'), '#'
-        .caption
-          %h3 Salvation Army on iPad App Wireframe
-          .proto-meta
-            .proto-date
-              Apr 26
-          %ul.proto-tag-list.list-inline
-            %li
-              = link_to 'iPad', '#', class: 'btn btn-default'
-            %li
-              = link_to 'wireframe', '#', class: 'btn btn-default'
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        = link_to image_tag('sample.png'), '#'
-        .caption
-          %h3 Salvation Army on iPad App Wireframe
-          .proto-meta
-            .proto-date
-              Apr 26
-          %ul.proto-tag-list.list-inline
-            %li
-              = link_to 'iPad', '#', class: 'btn btn-default'
-            %li
-              = link_to 'wireframe', '#', class: 'btn btn-default'
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        = link_to image_tag('sample.png'), '#'
-        .caption
-          %h3 Salvation Army on iPad App Wireframe
-          .proto-meta
-            .proto-date
-              Apr 26
-          %ul.proto-tag-list.list-inline
-            %li
-              = link_to 'iPad', '#', class: 'btn btn-default'
-            %li
-              = link_to 'wireframe', '#', class: 'btn btn-default'
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        = link_to image_tag('sample.png'), '#'
-        .caption
-          %h3 Salvation Army on iPad App Wireframe
-          .proto-meta
-            .proto-date
-              Apr 26
-          %ul.proto-tag-list.list-inline
-            %li
-              = link_to 'iPad', '#', class: 'btn btn-default'
-            %li
-              = link_to 'wireframe', '#', class: 'btn btn-default'
+    = render @prototypes, partial: 'prototypes/prototype'
+
 
 .text-center
   %ul.pagination
