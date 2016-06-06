@@ -56,6 +56,7 @@ gem 'devise'
 
 # Add carrierwave
 gem 'carrierwave'
+gem 'rmagick'
 
 # Add kaminari
 gem 'kaminari'
