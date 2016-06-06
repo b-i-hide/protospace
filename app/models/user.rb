@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
 
   paginates_per 8
 
+  mount_uploader :avatar, AvatarUploader
+
 end
