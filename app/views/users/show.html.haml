@@ -2,12 +2,12 @@
   %header.user-nav
     .media
       .media-left
-        = link_to image_tag(@user.avatar, alt: '64x64', size: "64x64", class: 'media-object' ), user_path(@user.id)
+        = link_to image_tag(@user.avatar, alt: '64x64', size: "64x64", class: 'media-object' ), user_path(@user)
       .media-body
         %h4#top-aligned-media.media-heading
           Top aligned media
           %span.label.label-default.project-number
-            29
+            = @prototypes.count
             %i Projects
         .proto-user
           %span.degree we-b inc. Designer
