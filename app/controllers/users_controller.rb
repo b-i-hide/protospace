@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i(show update edit)
 
   def show
+    @prototypes = @user.prototypes
   end
 
   def edit
