@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   has_many :prototypes
+
+  paginates_per 8
+
 end
