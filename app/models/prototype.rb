@@ -14,7 +14,6 @@ class Prototype < ActiveRecord::Base
 
   def sub_image_fields
     sub_images = images.sub
-    binding.pry
     3.times{ |i|  sub_images[i] ||= images.build(status: 'sub')}
     sub_images
   end
