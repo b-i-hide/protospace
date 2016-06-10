@@ -39,7 +39,7 @@ class PrototypesController < ApplicationController
       redirect_to action: :show
     else
       flash[:warning] = 'Your prototype was not updated'
-      redirect_to action: :edit
+      render action: :edit
     end
   end
 
