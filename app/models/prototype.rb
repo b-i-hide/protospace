@@ -12,4 +12,11 @@ class Prototype < ActiveRecord::Base
     created_at.strftime("%b %d")
   end
 
+  MAX_OF_SUB_IMAGES = 3
+  def sub_image_fields
+    sub_images = images.sub
+    MAX_OF_SUB_IMAGES.times{ |i|  sub_images[i] ||= images.build(status: 'sub')}
+    sub_images
+  end
+
 end
