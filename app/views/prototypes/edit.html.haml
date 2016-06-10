@@ -7,12 +7,12 @@
       .row
         .col-md-12
           .cover-image-upload
-            = f.fields_for :images, @main do |image|
+            = f.fields_for :images, @main_image do |image|
               = image.file_field :image
               = image.hidden_field :status, value: 'main'
         .col-md-12
           %ul.proto-sub-list.list-group
-            = f.fields_for :images, @sub do |image|
+            = f.fields_for :images, @sub_images do |image|
               %li.list-group-item.col-md-4
                 .image-upload
                   = image.file_field :image

@@ -12,7 +12,7 @@
             = link_to "by #{@user.name}", user_path(@user)
             %span.degree we-b inc. Designer
 
-    - if user_signed_in?
+    - if current_user.id == @user.id
       .col-md-6.text-right
         .btn.btn-default
           = link_to 'edit prototype', edit_prototype_path
