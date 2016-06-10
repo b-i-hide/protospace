@@ -11,6 +11,4 @@ class Prototype < ActiveRecord::Base
   def posted_date
     created_at.strftime("%b %d")
   end
-
-  
 end
