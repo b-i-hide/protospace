@@ -11,4 +11,12 @@ class Prototype < ActiveRecord::Base
   def posted_date
     created_at.strftime("%b %d")
   end
+
+  def sub_image_fields
+    sub_images = images.sub
+    binding.pry
+    3.times{ |i|  sub_images[i] ||= images.build(status: 'sub')}
+    sub_images
+  end
+
 end
