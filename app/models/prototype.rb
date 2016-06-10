@@ -4,7 +4,7 @@ class Prototype < ActiveRecord::Base
   has_many :images, dependent: :destroy
   has_one :main_image, class_name: "Image"
 
-  accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['image'].blank? }, limit: 4
+  accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['image'].blank? }
 
   paginates_per 9
 
@@ -12,4 +12,5 @@ class Prototype < ActiveRecord::Base
     created_at.strftime("%b %d")
   end
 
+  
 end
