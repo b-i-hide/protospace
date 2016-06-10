@@ -24,7 +24,7 @@ class PrototypesController < ApplicationController
       redirect_to action: :index
     else
       flash[:warning] = 'Failed'
-      redirect_to action: :new
+      render action: :new
     end
   end
 
