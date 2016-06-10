@@ -29,20 +29,24 @@ class PrototypesController < ApplicationController
   end
 
   def edit
-    @main = @prototype.main_image
-    @sub = @prototype.sub_image_fields
+    @main_image = @prototype.main_image
+    @sub_images = @prototype.sub_image_fields
   end
 
   def update
-    @prototype.update(prototype_params)
-    flash[:success] = 'Your prototype was successfully updated'
-    redirect_to action: :show
+    if @prototype.update(prototype_params)
+      flash[:success] = 'Your prototype was successfully updated'
+      redirect_to action: :show
+    else
+      flash[:warning] = 'Your prototype was not updated'
+      redirect_to action: :edit
+    end
   end
 
   private
 
   def prototype_params
-    params.require(:prototype).permit(:name, :concept, :catch_copy, images_attributes: [:status, :image, :id])
+    params.require(:prototype).permit(:name, :concept, :catch_copy, images_attributes: [:id, :status, :image])
   end
 
   def set_prototype
