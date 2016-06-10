@@ -12,6 +12,10 @@
             = link_to "by #{@user.name}", user_path(@user)
             %span.degree we-b inc. Designer
 
+    - if user_signed_in?
+      .col-md-6.text-right
+        .btn.btn-default
+          = link_to 'edit prototype', edit_prototype_path
     .col-md-6.text-right
       %button.btn.btn-default
         = image_tag("icon_heart.svg")
