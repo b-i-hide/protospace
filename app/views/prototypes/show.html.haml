@@ -28,7 +28,7 @@
               %li
                 = link_to "Edit #{@prototype.name}", edit_prototype_path
               %li
-                = link_to "Delete #{@prototype.name}", "/prototypes/#{@prototype.id}", method: :delete
+                = link_to "Delete #{@prototype.name}", prototype_path, method: :delete
 
   .row
     .col-md-9
