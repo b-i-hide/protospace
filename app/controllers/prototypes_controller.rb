@@ -1,7 +1,7 @@
 class PrototypesController < ApplicationController
 
   before_action :authenticate_user!, only: %i(create new)
-  before_action :set_prototype, only: %i(show edit update)
+  before_action :set_prototype, only: %i(show edit update destroy)
 
   def index
     @prototypes = Prototype.includes(:user, :main_image).page(params[:page])
@@ -20,11 +20,9 @@ class PrototypesController < ApplicationController
   def create
     prototype = current_user.prototypes.new(prototype_params)
     if prototype.save
-      flash[:success] = 'Your prototype was successfully posted'
-      redirect_to action: :index
+      redirect_to root_path, success: 'Your prototype was successfully posted'
     else
-      flash[:warning] = 'Failed'
-      render action: :new
+      render ({ action: :new }), warning: 'Failed'
     end
   end
 
@@ -35,11 +33,17 @@ class PrototypesController < ApplicationController
 
   def update
     if @prototype.update(prototype_params)
-      flash[:success] = 'Your prototype was successfully updated'
-      redirect_to action: :show
+      redirect_to ({ action: :show }), success: 'Your prototype was successfully updated'
     else
-      flash[:warning] = 'Your prototype was not updated'
-      render action: :edit
+      render ({ action: :edit }), warning: 'Your prototype was not updated'
+    end
+  end
+
+  def destroy
+    if @prototype.destroy
+      redirect_to root_path, success: 'Your prototype was successfully deleted'
+    else
+      redirect_to ({ action: :show }), warning: 'Your prototype was not deleted'
     end
   end
 
