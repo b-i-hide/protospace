@@ -13,10 +13,8 @@
             %span.degree we-b inc. Designer
 
     .col-md-6.text-right
-      %button.btn.btn-default
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num 20
+      #like-buttons
+        = render 'likes/like'
     - if user_signed_in? && (current_user.id == @user.id)
       .col-md-6.text-right
         %ul.nav.navbar-nav.navbar-right.pull-right.nav-pills
