@@ -1,6 +1,7 @@
 class Prototype < ActiveRecord::Base
 
   belongs_to :user
+  has_many :likes, dependent: :destroy
   has_many :images, dependent: :destroy
   has_one :main_image, class_name: "Image"
 
@@ -17,6 +18,10 @@ class Prototype < ActiveRecord::Base
     sub_images = images.sub
     MAX_OF_SUB_IMAGES.times{ |i|  sub_images[i] ||= images.build(status: 'sub')}
     sub_images
+  end
+
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
   end
 
 end
