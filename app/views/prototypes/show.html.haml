@@ -14,7 +14,7 @@
 
     .col-md-6.text-right
       #like-buttons
-        = render partial: 'likes/like', locals: { prototype: @prototype, likes: @likes, like: @like}
+        = render partial: 'prototypes/like', locals: { prototype: @prototype, like: @like}
     - if user_signed_in? && (current_user.id == @user.id)
       .col-md-6.text-right
         %ul.nav.navbar-nav.navbar-right.pull-right.nav-pills
