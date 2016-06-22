@@ -1,0 +1,16 @@
+- if user_signed_in?
+  - if prototype.like_user(current_user)
+    = button_to like_path(like, prototype_id: prototype.id), method: :delete, id: "like-buttons",class: "btn btn-default decrement-button", data: { disable_with: "sending..." }, remote: true do
+      = image_tag("icon_heart_red.ico")
+      %span.num#like-sum
+      = "LIKE  #{prototype.likes_count}"
+  - else
+    = button_to likes_path(prototype_id: prototype), method: :post, id: "like-buttons",class: "btn btn-default decrement-button", data: { disable_with: "sending..." }, remote: true do
+      = image_tag("icon_heart.svg")
+      %span.num#like-sum
+      = "LIKE  #{prototype.likes_count}"
+- else
+  = button_tag disabled: 'disabled', id: "like-buttons", class: "btn btn-default" do
+    = image_tag("icon_heart_red.ico")
+    %span.num#like-sum
+      = "LIKE  #{prototype.likes_count}"
