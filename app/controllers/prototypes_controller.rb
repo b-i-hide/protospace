@@ -16,6 +16,8 @@ class PrototypesController < ApplicationController
     @sub_images = @prototype.images.sub
     @user = @prototype.user
     @like = @prototype.likes.find_by(user_id: current_user.id, prototype_id: params[:id])
+    @comments = @prototype.comments.includes(:user)
+    @comment = @prototype.comments.new(prototype_id: @prototype.id, user_id: current_user.id)
   end
 
   def create
