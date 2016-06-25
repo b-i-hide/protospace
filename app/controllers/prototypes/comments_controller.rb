@@ -9,7 +9,7 @@ class Prototypes::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:comment, :user_id, :prototype_id)
+    params.require(:comment).permit(:comment, :user_id, :prototype_id)
   end
 
   def set_prototype
