@@ -59,7 +59,7 @@
       .media
         = render partial: 'prototypes/comment', collection: @comments, locals: {comments: @comments}
       %form.form-inline
-        = form_for(@comment, remote: true) do |f|
+        = form_for @comment, remote: true do |f|
           = f.hidden_field :user_id, value: "#{current_user.id}"
           %h4 Write a comment
           .row
