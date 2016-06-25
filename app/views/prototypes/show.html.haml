@@ -53,17 +53,17 @@
   .row.proto-comments
     %h4.col-md-12
       Comments
-      %span.num.js-comments-count
+      %span.num#js-comments-count
         = @comments.length
     .col-md-8
-      .media
+      .media#js-comments
         = render partial: 'prototypes/comment', collection: @comments, locals: {comments: @comments}
       %form.form-inline
         = form_for @comment, remote: true do |f|
-          = f.hidden_field :user_id, value: "#{current_user.id}"
+          = f.hidden_field :user_id, value: current_user.id
           %h4 Write a comment
           .row
             .form-group.col-md-10
-              = f.text_area :comment, placeholder: 'Your comments', rows: "3"
+              = f.text_area :comment, placeholder: 'Your comments', rows: "3", id: "comments_text"
             .form-group.col-md-2
               = f.submit value: 'Comment', class: 'btn btn-primary'
