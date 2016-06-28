@@ -2,6 +2,7 @@ class PrototypesController < ApplicationController
 
   before_action :authenticate_user!, only: %i(create new)
   before_action :set_prototype, only: %i(show edit update destroy)
+  after_action :set_comments, only: :show
 
   def index
     @prototypes = Prototype.includes(:user, :main_image).page(params[:page])
@@ -15,9 +16,9 @@ class PrototypesController < ApplicationController
   def show
     @sub_images = @prototype.images.sub
     @user = @prototype.user
-    @like = @prototype.likes.find_by(user_id: current_user.id, prototype_id: params[:id])
+    @like = @prototype.likes.find_by(user_id: @user.id, prototype_id: params[:id])
+    @comment = @prototype.comments.new
     @comments = @prototype.comments.includes(:user)
-    @comment = @prototype.comments.new(prototype_id: @prototype.id, user_id: current_user.id)
   end
 
   def create
@@ -58,5 +59,9 @@ class PrototypesController < ApplicationController
 
   def set_prototype
     @prototype = Prototype.find(params[:id])
+  end
+
+  def set_comments
+    @comments = @prototype.comments.includes(:user)
   end
 end
