@@ -56,14 +56,16 @@
       %span.num#js-comments-count
         = @comments.length
     .col-md-8
-      .media#js-comments
-        = render partial: 'prototypes/comment', collection: @comments, locals: {comments: @comments}
-      %form.form-inline
-        = form_for @comment, remote: true do |f|
-          = f.hidden_field :user_id, value: current_user.id
-          %h4 Write a comment
-          .row
-            .form-group.col-md-10
-              = f.text_area :comment, placeholder: 'Your comments', rows: "3", id: "comments_text"
-            .form-group.col-md-2
-              = f.submit value: 'Comment', class: 'btn btn-primary'
+      #js-comments
+        = render partial: 'prototypes/comment', collection: @comments
+      .form-inline
+        - if user_signed_in?
+          = form_for @comment, remote: true do |f|
+            = f.hidden_field :user_id, value: current_user.id
+            = f.hidden_field :prototype_id, value: @prototype.id
+            %h4 Write a comment
+            .row
+              .form-group.col-md-10
+                = f.text_area :comment, placeholder: 'Your comments', rows: "3", id: "comment_text"
+              .form-group.col-md-2
+                = f.submit value: 'Comment', class: 'btn btn-primary'
