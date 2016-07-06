@@ -1,23 +1,7 @@
-.jumbotron
-  .container.text-center
-    = image_tag("header_logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: "73px")
-
-.filter-nav
-  .container
-    .row
-      %ul.nav.nav-pills.col-lg-11
-        %li.active{role: "presentation"}
-          %a{href: "#"} Popular PROTO
-        %li{role: "presentation"}
-          = link_to 'Newest PROTO',  newest_index_path
-      %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
+= render partial: 'prototypes/header', locals: { row: @sort }
 
 .container.proto-list
   .row
     = render partial: 'prototypes/prototype', collection: @prototypes
 
-.text-center
-  %ul.pagination
-    %nav.pagination
-      %li.disabled
-        = paginate(@prototypes)
+= render partial: 'prototypes/header', locals: { prototypes: @prototypes}
