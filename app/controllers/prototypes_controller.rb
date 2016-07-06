@@ -4,7 +4,8 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, only: %i(show edit update destroy)
 
   def index
-    @prototypes = Prototype.includes(:user, :main_image).page(params[:page])
+    @prototypes = Prototype.includes(:user, :main_image).order('likes_count DESC').page(params[:page])
+    @active = 'popular'
   end
 
   def new
