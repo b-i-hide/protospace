@@ -1,7 +1,8 @@
-= render partial: 'prototypes/header', locals: { row: @sort }
+= render partial: 'prototypes/header'
 
 .container.proto-list
   .row
     = render partial: 'prototypes/prototype', collection: @prototypes
 
-= render partial: 'prototypes/header', locals: { prototypes: @prototypes}
+.text-center
+  = render partial: 'prototypes/pagination'
