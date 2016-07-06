@@ -2,7 +2,7 @@
 
 .container.proto-list
   .row
-    = render @prototypes
+    = render partial: 'prototypes/prototype', collection: @prototypes
 
 .text-center
   = render partial: 'prototypes/pagination'
