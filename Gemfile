@@ -52,7 +52,7 @@ gem 'erb2haml'
 gem 'bootstrap-sass'
 
 # Add Devise
-gem 'devise'
+gem 'devise', '4.2.0'
 
 # Add carrierwave
 gem 'carrierwave'
