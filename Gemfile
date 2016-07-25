@@ -60,3 +60,6 @@ gem 'rmagick'
 
 # Add kaminari
 gem 'kaminari'
+
+# Add tag
+gem 'acts-as-taggable-on', '~> 3.4'
