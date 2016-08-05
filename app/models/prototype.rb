@@ -9,6 +9,7 @@ class Prototype < ActiveRecord::Base
 
   #set tag
   acts_as_ordered_taggable_on :tags
+  acts_as_taggable_on :prototypes
 
   accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['image'].blank? }, limit: 4
 
