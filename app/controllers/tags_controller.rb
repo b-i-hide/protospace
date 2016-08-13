@@ -5,6 +5,6 @@ class TagsController < ApplicationController
 
   def show
     @tag =  ActsAsTaggableOn::Tag.find(params[:id])
-    @prototype = Prototype.tagged_with(@tag.name)
+    @prototypes = Prototype.tagged_with(@tag.name)
   end
 end
