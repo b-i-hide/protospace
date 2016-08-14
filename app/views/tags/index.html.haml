@@ -1,8 +1,7 @@
 .container
+  %h2.clearfix
+    Tags List
   .row
-    %h2.tag-list
-      Tag list
-      %ul.proto-tag-list.list-inline
-        %li
-        - @tags.each do |tag|
-          = link_to tag.name, tag_path(tag), class: 'btn btn-default'
+    - @tags.each do |tag|
+      %ul.col-md-4
+        = link_to tag.name, tag_path(tag), class: 'btn btn-defaults', style: 'color: black'
