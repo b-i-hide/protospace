@@ -48,7 +48,7 @@
       %ul.proto-tag-list.list-inline
         - @prototype.tags.each do |tag|
           %li
-            =link_to "#{tag.name}", tag_path(tag.id)
+            =link_to tag.name, tag_path(tag)
   .row.proto-comments
     %h4.col-md-12
       Comments

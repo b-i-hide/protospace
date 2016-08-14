@@ -26,11 +26,8 @@
         .col-md-12
           %h4 Tag List
           .row
-            .col-md-3
-              = text_field_tag 'prototype[tag][]', "", placeholder: "Web Design"
-            .col-md-3
-              = text_field_tag 'prototype[tag][]', "", placeholder: "UI"
-            .col-md-3
-              = text_field_tag 'prototype[tag][]', "", placeholder: "Application"
+            - 3.times do
+              .col-md-3
+                = text_field_tag 'prototype[tag][]', "", placeholder: @prototype.tags.name
       .row.text-center.proto-btn
         = f.submit 'Save', class: 'btn btn-lg btn-primary btn-block', data: { disable_with: 'Sending' }

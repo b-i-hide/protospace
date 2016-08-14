@@ -10,5 +10,4 @@
           = link_to 'Popular PROTO', root_path
         %li{role: "presentation", class: "#{'active' if @active == 'newest'}"}
           = link_to 'Newest PROTO', newest_index_path
-      %button{type: "button", class: "btn btn-default col-lg-1"}
-        = link_to 'View Tags', tags_path
+      = link_to 'View Tags', tags_path, class: 'btn btn-default col-lg-1'
