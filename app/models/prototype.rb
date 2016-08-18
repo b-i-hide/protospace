@@ -1,10 +1,15 @@
 class Prototype < ActiveRecord::Base
 
+  #association
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :images, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one :main_image, class_name: "Image"
+
+  #set tag
+  acts_as_ordered_taggable_on :tags
+  acts_as_taggable_on :prototypes
 
   accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['image'].blank? }, limit: 4
 

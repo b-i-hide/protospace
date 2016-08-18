@@ -52,7 +52,7 @@ gem 'erb2haml'
 gem 'bootstrap-sass'
 
 # Add Devise
-gem 'devise'
+gem 'devise', '4.2.0'
 
 # Add carrierwave
 gem 'carrierwave'
@@ -60,3 +60,6 @@ gem 'rmagick'
 
 # Add kaminari
 gem 'kaminari'
+
+# Add tag
+gem 'acts-as-taggable-on', '~> 3.4'
