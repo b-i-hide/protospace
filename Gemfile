@@ -63,3 +63,8 @@ gem 'kaminari'
 
 # Add tag
 gem 'acts-as-taggable-on', '~> 3.4'
+
+# Add twitter-bootstrap
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
