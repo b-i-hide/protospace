@@ -13,7 +13,7 @@ class Prototype < ActiveRecord::Base
 
   accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['image'].blank? }, limit: 4
 
-  paginates_per 9
+  paginates_per 8
 
   def posted_date
     created_at.strftime("%b %d")
