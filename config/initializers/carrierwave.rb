@@ -10,12 +10,12 @@ CarrierWave.configure do |config|
 
   case Rails.env
     when 'development'
-      config.fog_directory  = 'protospase-images-uploader'
-      config.asset_host = 'https://s3.amazonaws.com/protospase-images-uploader'
+      config.fog_directory  = 'protospace-images-uploader'
+      config.asset_host = 'https://s3.amazonaws.com/protospace-images-uploader'
     when 'production'
-      config.fog_directory  = 'protospase-images-uploader'
-      config.asset_host = 'https://s3.amazonaws.com/protospase-images-uploader'
+      config.fog_directory  = 'protospace-images-uploader'
+      config.asset_host = 'https://s3.amazonaws.com/protospace-images-uploader'
     when 'test'
-      config.storage = :fog
+      config.storage = :file
   end
 end
