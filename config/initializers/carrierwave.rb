@@ -5,7 +5,7 @@ CarrierWave.configure do |config|
       aws_access_key_id: ENV['ACCESS_KEY_ID'],
       aws_secret_access_key: ENV['SECRET_ACCESS_KEY'],
       region: 'us-east-1',
-      path_style: true,
+      path_style: true
   }
 
   case Rails.env
