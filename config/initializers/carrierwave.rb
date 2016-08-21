@@ -4,16 +4,17 @@ CarrierWave.configure do |config|
       provider: 'AWS',
       aws_access_key_id: ENV['ACCESS_KEY_ID'],
       aws_secret_access_key: ENV['SECRET_ACCESS_KEY'],
-      region: 'us-east-1'
+      region: 'us-east-1',
+      path_style: true,
   }
 
   case Rails.env
     when 'development'
-      config.fog_directory  = 'protospase-backet'
-      config.asset_host = 'https://s3.amazonaws.com/protospase-backet'
+      config.fog_directory  = 'protospase-images-uploader'
+      config.asset_host = 'https://s3.amazonaws.com/protospase-images-uploader'
     when 'production'
-      config.fog_directory  = 'protospase-backet'
-      config.asset_host = 'https://s3.amazonaws.com/protospase-backet'
+      config.fog_directory  = 'protospase-images-uploader'
+      config.asset_host = 'https://s3.amazonaws.com/protospase-images-uploader'
     when 'test'
       config.storage = :fog
   end
