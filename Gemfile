@@ -68,3 +68,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+
+# Add s3
+gem 'fog'
+gem 'config'

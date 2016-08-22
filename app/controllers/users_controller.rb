@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i(show update edit)
 
   def show
-    @prototypes = @user.prototypes
+    @prototypes = @user.prototypes.page(params[:page]).per(8)
+    @prototypes_count = @user.prototypes
   end
 
   def edit
