@@ -8,16 +8,18 @@
         .col-md-12
           .cover-image-upload
             = f.fields_for :images do |image|
-              = image.file_field :image, required: true
-              = image.hidden_field :status, value: 'main'
+              .js-image-uploader
+                = image.file_field :image, required: true
+                = image.hidden_field :status, value: 'main'
         .col-md-12
           %ul.proto-sub-list.list-group
             - 3.times do
               %li.list-group-item.col-md-4
                 .image-upload
                   = f.fields_for :images do |image|
-                    = image.file_field :image
-                    = image.hidden_field :status, value: 'sub'
+                    .js-image-uploader
+                      = image.file_field :image
+                      = image.hidden_field :status, value: 'sub'
       .row.proto-description
         .col-md-12
           = f.text_field :catch_copy, placeholder: 'Catch Copy'
