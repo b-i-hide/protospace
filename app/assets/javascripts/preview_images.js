@@ -17,8 +17,11 @@ $(function () {
             };
             // ファイルの読み取りに成功した時
             filereader.onload = function () {
-               preview_image.css({
-                   'background-image': 'url(' + filereader.result + ')'
+               preview_field.css({
+                   'background-image': 'url(' + filereader.result + ')',
+                   'height': '100%',
+                   'background-size': 'cover'
+
                });
             };
             //　ファイルの読み取りの実行
