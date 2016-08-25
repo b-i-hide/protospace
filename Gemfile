@@ -45,6 +45,18 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # For test
+  gem "rspec-rails"         #Rails 専用の機能を追加するRSpecのラッパーライブラリ
+  gem "factory_girl_rails"  #テストデータを作成する
+  gem "faker"
+end
+
+# For Test env
+group :test do
+  gem "capybara"            #ユーザーとWebアプリケーションのやり取りをプログラム上で簡単にシュミレートを可能にする
+  gem "database_cleaner"    #データベースをまっさらな状態で各specが実行できるようにする
+  gem "launchy"             #テストのデバック用
+  gem "poltergeist"         #capybaraのためのドライバ
 end
 
 # Add Haml
