@@ -43,10 +43,6 @@ describe User do
            user.valid?
            expect(user.errors[:password][0]).to include('is too short')
          end
-
-         it "should " do
-
-         end
        end
      end
   end
