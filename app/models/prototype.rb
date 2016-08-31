@@ -12,7 +12,7 @@ class Prototype < ActiveRecord::Base
   acts_as_taggable_on :prototypes
 
   # validation
-  validates :title, presence: true
+  validates :name, :concept, :catch_copy, presence: true
 
   accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['image'].blank? }, limit: 4
 
