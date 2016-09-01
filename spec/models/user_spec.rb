@@ -2,10 +2,9 @@ require 'rails_helper'
 
 describe User do
    describe '#create' do
-     context 'with valid with all information' do
+     context 'with valid attributes' do
        it "is valid with all information" do
-         user = create(:user)
-         expect(user).to be_valid
+         expect(build(:user)).to be_valid
        end
      end
 
@@ -36,7 +35,7 @@ describe User do
        end
 
        it "is invalid with a password that has less than 7 characters" do
-         user = build(:user, password: '0000')
+         user = build(:user, password: '0000000')
          user.valid?
          expect(user.errors[:password][0]).to include('is too short')
        end
