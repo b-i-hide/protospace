@@ -7,7 +7,7 @@ describe Image do
     it "has the wrong content format" do
       image = build(:image, :main, image: fixture_file_upload('img/sample.pdf'))
       image.valid?
-      expect(image.errors[:image]).to include("can't be blank")
+      expect(image.errors[:image]).to include("You are not allowed to upload \"pdf\" files, allowed types: jpg, jpeg, gif, png", "can't be blank")
     end
 
     context 'with a valid factory' do
