@@ -11,6 +11,9 @@ class Prototype < ActiveRecord::Base
   acts_as_ordered_taggable_on :tags
   acts_as_taggable_on :prototypes
 
+  # validation
+  validates :name, :concept, :catch_copy, presence: true
+
   accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['image'].blank? }, limit: 4
 
   paginates_per 8
