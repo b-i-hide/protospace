@@ -29,32 +29,32 @@ describe Prototype do
 
     context 'without valid attributes' do
       it "is invalid without title" do
-        prototype = build(:prototype, name: '')
+        prototype = build(:prototype, name: nil)
         prototype.valid?
-        expect(prototype.errors[:name]).to include{ "can't be blank" }
+        expect(prototype.errors[:name]).to include( "can't be blank" )
       end
 
       it "is invalid without catch_copy" do
-        prototype = build(:prototype, catch_copy: '')
+        prototype = build(:prototype, catch_copy: nil)
         prototype.valid?
-        expect(prototype.errors[:catch_copy]).to include{ "can't be blank" }
+        expect(prototype.errors[:catch_copy]).to include( "can't be blank" )
       end
 
       it "is invalid without concept" do
-        prototype = build(:prototype, concept: '')
+        prototype = build(:prototype, concept: nil)
         prototype.valid?
-        expect(prototype.errors[:concept]).to include{ "can't be blank" }
+        expect(prototype.errors[:concept]).to include( "can't be blank" )
       end
     end
 
-    context '#posted_date' do
+    describe '#posted_date' do
       it "returns dates in a specified format" do
-        prototype = build(:prototype)
-        expect(prototype.posted_date).to eq((prototype.created_at.strftime("%b %d")))
+        prototype = build(:prototype, created_at: '2016-08-21 16:50:28')
+        expect(prototype.posted_date).to eq('Aug 21')
       end
     end
 
-    context '#like_user(user)' do
+    describe '#like_user(user)' do
       context 'when liked by a user' do
         it "returns true" do
           user = create(:user)
