@@ -106,7 +106,7 @@ describe PrototypesController do
       it "assigns main_image to @main_image" do
         expect(assigns(:main_image)).to eq(prototype.main_image)
       end
-      
+
       it "renders the :edit template" do
         expect(response).to render_template :edit
       end
