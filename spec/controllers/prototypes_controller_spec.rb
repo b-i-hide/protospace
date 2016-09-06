@@ -4,14 +4,16 @@ describe PrototypesController do
   describe 'with user login' do
     login_user
     describe 'GET #index' do
+      before do
+        get :index
+      end
+
       it "assigns the requested prototypes to @prototypes" do
         prototypes = create_list(:prototype, 5)
-        get :index
         expect(assigns(:prototypes)).to match(prototypes)
       end
 
       it "renders the :new template" do
-        get :index
         expect(response).to render_template :index
       end
     end
