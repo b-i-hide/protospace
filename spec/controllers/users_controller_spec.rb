@@ -11,7 +11,7 @@ describe UsersController do
       end
 
       it "assigns he requested user to @user" do
-        expect(assigns(:user)).to match(user)
+        expect(assigns(:user)).to eq user
       end
 
       it "renders the :show template" do
@@ -25,7 +25,7 @@ describe UsersController do
       end
 
       it "assigns he requested user to @user" do
-        expect(assigns(:user)).to match(user)
+        expect(assigns(:user)).to eq user
       end
 
       it "renders the :edit template" do
@@ -44,7 +44,7 @@ describe UsersController do
       end
 
       it "assigns he requested user to @user" do
-        expect(assigns(:user)).to match(user)
+        expect(assigns(:user)).to eq user
       end
 
       it "changes @user's attributes" do
