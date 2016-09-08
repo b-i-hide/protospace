@@ -2,10 +2,9 @@ require 'rails_helper'
 
 describe UsersController do
   describe 'GET #show' do
+    subject(:user){ create(:user) }
     context 'with user login' do
       login_user
-
-      subject(:user){ create(:user) }
 
       before do
         get :show, id: subject
@@ -22,10 +21,10 @@ describe UsersController do
   end
 
   describe 'GET #edit' do
+    subject(:user){ create(:user) }
     context 'with user login' do
       login_user
 
-      subject(:user){ create(:user) }
       before do
         get :edit, id: subject
       end
@@ -40,8 +39,6 @@ describe UsersController do
     end
 
     context 'without user login' do
-      subject(:user){ create(:user) }
-
       it "redirects to sign_in page" do
         get :edit, id: subject
         expect(response).to redirect_to new_user_session_path
@@ -50,14 +47,13 @@ describe UsersController do
   end
 
   describe 'PATCH #update' do
+    subject(:user){ create(:user) }
+    let(:params){{
+        id: subject.id,
+        user: attributes_for(:user, name: 'test')
+    }}
     context 'with user login' do
       login_user
-
-      subject(:user){ create(:user) }
-      let(:params){{
-          id: subject.id,
-          user: attributes_for(:user, name: 'test')
-      }}
 
       before do
         patch :update, params
@@ -82,11 +78,6 @@ describe UsersController do
     end
 
     context 'without user login' do
-      subject(:user){ create(:user) }
-      let(:params){{
-          id: subject.id,
-          user: attributes_for(:user)
-      }}
       it "redirects to sign_in page" do
         patch :update, params
         expect(response).to redirect_to new_user_session_path
