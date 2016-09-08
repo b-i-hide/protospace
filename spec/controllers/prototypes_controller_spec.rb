@@ -141,9 +141,9 @@ describe PrototypesController do
   end
 
   describe 'GET #edit' do
+    subject(:prototype){ create(:prototype) }
     context 'with user login' do
       login_user
-      subject(:prototype){ create(:prototype) }
 
       before do
         get :edit, id: subject
@@ -163,8 +163,6 @@ describe PrototypesController do
     end
 
     context 'without user login' do
-      subject(:prototype){ create(:prototype) }
-
       it "redirects sign_in page" do
         get :edit, id: subject
         expect(response).to redirect_to new_user_session_path
@@ -235,9 +233,9 @@ describe PrototypesController do
   end
 
   describe 'DELETE #destroy' do
+    subject!(:prototype){ create(:prototype) }
     context 'with user login' do
       login_user
-      subject!(:prototype){ create(:prototype) }
 
       it "assigns the requested prototype to @prototype" do
         delete :destroy, id: subject
@@ -262,8 +260,6 @@ describe PrototypesController do
     end
 
     context 'without user login' do
-      subject(:prototype){ create(:prototype) }
-
       it "redirects sign_in page" do
         delete :destroy, id: subject
         expect(response).to redirect_to new_user_session_path
