@@ -1,31 +1,37 @@
 require 'rails_helper'
 
 describe UsersController do
-  describe 'with user login' do
-    login_user
+  describe 'GET #show' do
+    context 'with user login' do
+      login_user
 
-    let(:user){ create(:user) }
-    context 'GET #show' do
+      subject(:user){ create(:user) }
+
       before do
-        get :show, id: user
+        get :show, id: subject
       end
 
       it "assigns he requested user to @user" do
-        expect(assigns(:user)).to eq user
+        expect(assigns(:user)).to eq subject
       end
 
       it "renders the :show template" do
         expect(response).to render_template :show
       end
     end
+  end
 
-    context 'GET #edit' do
+  describe 'GET #edit' do
+    context 'with user login' do
+      login_user
+
+      subject(:user){ create(:user) }
       before do
-        get :edit, id: user
+        get :edit, id: subject
       end
 
       it "assigns he requested user to @user" do
-        expect(assigns(:user)).to eq user
+        expect(assigns(:user)).to eq subject
       end
 
       it "renders the :edit template" do
@@ -33,10 +39,24 @@ describe UsersController do
       end
     end
 
-    context 'PATCH #update' do
+    context 'without user login' do
+      subject(:user){ create(:user) }
+
+      it "redirects to sign_in page" do
+        get :edit, id: subject
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+  end
+
+  describe 'PATCH #update' do
+    context 'with user login' do
+      login_user
+
+      subject(:user){ create(:user) }
       let(:params){{
-        id: user.id,
-            user: attributes_for(:user, name: 'test')
+          id: subject.id,
+          user: attributes_for(:user, name: 'test')
       }}
 
       before do
@@ -44,12 +64,12 @@ describe UsersController do
       end
 
       it "assigns he requested user to @user" do
-        expect(assigns(:user)).to eq user
+        expect(assigns(:user)).to eq subject
       end
 
       it "changes @user's attributes" do
         user.reload
-        expect(user.name).to eq 'test'
+        expect(subject.name).to eq 'test'
       end
 
       it "redirects to root_path" do
@@ -60,24 +80,15 @@ describe UsersController do
         expect(flash[:success]).to eq 'Your data was successfully updated'
       end
     end
-  end
 
-  describe 'without user login' do
-    let(:user){ create(:user) }
-    context 'GET #edit' do
-      it "redirects to sign_in page" do
-        get :edit, id: user
-        expect(response).to redirect_to new_user_session_path
-      end
-    end
-
-    context 'PATCH #update' do
+    context 'without user login' do
+      subject(:user){ create(:user) }
       let(:params){{
-        id: user.id,
-        user: attributes_for(:user)
+          id: subject.id,
+          user: attributes_for(:user)
       }}
       it "redirects to sign_in page" do
-        patch :update, id: user
+        patch :update, params
         expect(response).to redirect_to new_user_session_path
       end
     end
