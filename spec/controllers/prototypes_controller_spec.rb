@@ -2,11 +2,11 @@ require 'rails_helper'
 
 describe PrototypesController do
   let(:params) {{
-      id: prototype.id,
+      id: subject.id,
       prototype: attributes_for(:prototype, name: 'hoge')
   }}
   let(:invalid_params) {{
-      id: prototype.id,
+      id: subject.id,
       prototype: attributes_for(:prototype, name: nil)
   }}
 
