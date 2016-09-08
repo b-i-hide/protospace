@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
 
-  before_action :authenticate_user!, only: %i(create new)
+  before_action :authenticate_user!, except: :index
   before_action :set_prototype, only: %i(show edit update destroy)
 
   def index
@@ -26,7 +26,7 @@ class PrototypesController < ApplicationController
     if prototype.save
       redirect_to root_path, success: 'Your prototype was successfully posted'
     else
-      render ({ action: :new }), warning: 'Failed'
+      render ({ action: :new }), flash[:alert] = 'Failed'
     end
   end
 
@@ -39,7 +39,7 @@ class PrototypesController < ApplicationController
     if @prototype.update(prototype_params)
       redirect_to ({ action: :show }), success: 'Your prototype was successfully updated'
     else
-      render ({ action: :edit }), warning: 'Your prototype was not updated'
+      render ({ action: :edit }), flash[:alert] = 'Your prototype was not updated'
     end
   end
 
