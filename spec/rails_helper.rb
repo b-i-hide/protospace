@@ -6,6 +6,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'support/controller_macros'
+require 'support/feature_macros'
 
 
 require 'capybara/poltergeist'
@@ -69,4 +70,7 @@ RSpec.configure do |config|
 
   # Setting for Capybara
   Capybara.javascript_driver = :poltergeist
+
+  # include feature spec helpers
+  config.include FeatureMacros
 end
